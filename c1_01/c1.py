@@ -67,6 +67,76 @@ def demo_controlflow():
         if i == 6:
             break
 
+def demo_list():
+    lista = [1, 2, 3] #vector<int> ArrayList
+    print 1, lista
+    listb = ['a', 1, 'c', 1.1]
+    print 2, listb
+    lista.extend(listb)
+    print 3, lista
+    print 4, len(lista)
+    print 5, 'a' in lista
+    lista = lista + listb
+    print 6, lista
+    listb.insert(0, 'www')
+    print 7, listb
+    listb.pop(1)
+    print 8, listb
+    listb.reverse()
+    print 9, listb
+    print 10, listb[0], listb[1]
+    listb.sort()
+    print 11, listb
+    listb.sort(reverse=True)
+    print 12, listb
+    print 13, listb*2
+    print 14, [0]*14
+    tuplea = (1, 2, 3)
+    listaa = [1, 2, 3]
+    listaa.append(4)
+    print 15, listaa
+
+def add(a, b):
+    return a+b
+
+def sub(a, b):
+    return a - b
+
+def demo_dict():
+    dicta = {4:16, 1:1, 2:4, 3:9}
+    print 1, dicta
+    print 2, dicta.keys(), '|', dicta.values()
+    print 3, dicta.has_key(1), dicta.has_key('3')
+
+    #for map<int, int>::iterator it = x.begin(), it != x.end()
+    for key, value in dicta.items():
+        print 'key-value:', key,value
+
+    dictb = {'+':add, '-':sub}
+    print 4, dictb['+'](1,2)
+    print 5, dictb.get('-')(15,3)
+    dictb['*']='X'
+    print dictb
+    dicta.pop(4)
+    print 6, dicta
+    del dicta[1]
+    print 7, dicta
+
+def demo_set():
+    lista = [1, 2, 3]
+    seta = set(lista)
+    setb = set((2, 3, 4))
+    print 1, seta
+    print 2, setb
+    print 3, seta.intersection(setb), seta&setb
+    print 4, seta | setb, seta.union(setb)
+    print 5, seta - setb
+    seta.add('x')
+    print 6, seta
+    print 7, len(seta)
+    print 8, seta.isdisjoint(set((1, 2)))
+
+
 if __name__ == '__main__':
     print 'hello world'
 
@@ -74,4 +144,7 @@ if __name__ == '__main__':
     #demo_String()
     #demo_operation()
     #demo_buildinFunction()
-    demo_controlflow()
+    #demo_controlflow()
+    #demo_list()
+    #demo_dict()
+    demo_set()
