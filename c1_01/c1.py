@@ -70,6 +70,7 @@ def demo_controlflow():
 if __name__ == '__main__':
     print 'hello world'
 
+    #def qiushibaike()
     #demo_String()
     #demo_operation()
     #demo_buildinFunction()
