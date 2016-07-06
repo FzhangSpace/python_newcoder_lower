@@ -1,5 +1,7 @@
 #-*- encoding=UTF-8 -*-
 import requests
+import  re
+import random
 from bs4 import BeautifulSoup
 
 def qiushibaike():
@@ -136,9 +138,78 @@ def demo_set():
     print 7, len(seta)
     print 8, seta.isdisjoint(set((1, 2)))
 
+class User:
+    type = 'USER'
+    def __init__(self, name, uid):  #初始化函数
+        self.name = name
+        self.uid = uid
+    def __repr__(self):     # 默认的打印函数
+        return 'im' + self.name + ' ' + str(self.uid)
+
+class Admin(User):   #继承User
+    type = 'ADMIN'
+    def __init__(self, name, uid, group):
+        User.__init__(self, name, uid)  # 多态
+        self.group = group
+
+    def __repr__(self):
+        return 'im' + self.name + ' ' + str(self.uid) + ' ' + str(self.group)
+
+
+def demo_exception():
+    try:
+        print 2/1
+        #print 2/0
+
+        #主动抛异常
+        raise Exception('Raise Erroe', 'NowCoder')
+    except Exception as e:
+        print 'error:', e
+    finally:
+        print 'clearn up'
+
+def demo_random():
+    #random.seed(1) #随机数种子
+
+    print 1, random.random()
+    print 2, random.randint(0, 200)
+    print 3, random.choice(range(0, 100))
+    print 4, random.sample(range(0, 100), 4)
+    a = range(1, 10, 1)
+    random.shuffle(a)   #打乱
+    print 5, a
+
+def demo_re():
+    str='abc123def12gh15'
+    p1 = re.compile('\d+')
+    p2 = re.compile('\d')
+    print p1.findall(str)
+    print p2.findall(str)
+
+    str = 'a1@163.com;b@gmail.com;c@qq.com'
+    p3 = re.compile('[\w]+@[163|qq]+\.com')
+    print p3.findall(str)
+
+    str = '<html><h>title</h><body>XXX</body></html>'
+    p4 = re.compile('<h>[^<]+</h>')
+    p5 = re.compile('<h>([^<]+)</h><body>([^<]+)</body>')
+    print p4.findall(str)
+    print p5.findall(str)
+
+    str = 'xx2016-06-11yy'
+    p6 = re.compile('\d{4}-\d{2}-\d{2}')
+    print p6.findall(str)
 
 if __name__ == '__main__':
-    print 'hello world'
+
+
+    '''
+    user1 = User('u1', 1)
+    print user1
+    admin1 = Admin('a1', 101, 'g1')
+    print admin1
+    '''
+    #print 'hello world'
 
     #def qiushibaike()
     #demo_String()
@@ -147,4 +218,8 @@ if __name__ == '__main__':
     #demo_controlflow()
     #demo_list()
     #demo_dict()
-    demo_set()
+    #demo_set()
+    #demo_exception()
+    #demo_random()
+    demo_re()
+
