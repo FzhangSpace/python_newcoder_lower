@@ -19,7 +19,7 @@
         `pip install BeautifulSoup`
     也可以使用PyCharm安装，在File>Settings>Project:XXX>Project Interpreter里面双击pip
     然后直接在搜索框中输入包的名字
-```
+```python
 #-*- encoding=UTF-8 -*-
 import requests
 from bs4 import BeautifulSoup
@@ -42,7 +42,7 @@ if __name__ == '__main__':
 ###内置的模块
 
     随机数
-```
+```python
 import random
 
 #random.seed(1) #随机数种子
@@ -57,7 +57,7 @@ print 5, a
 ```
 
     正则
-```
+```python
 import re
 
 str='abc123def12gh15'
