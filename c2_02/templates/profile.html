@@ -1,0 +1,23 @@
+<html>
+<body>
+{# 这个是Jinja2模板语法，这个是注释 #}
+uid={{uid}}<br>     {# 这是获取变量 #}
+
+{% for i in range(0,5): %}
+    {{loop.index}}, number:{{i}}<br>
+{% endfor %}
+
+
+{# 可以理解定义了一个带参数的宏 #}
+{% macro render_color(color) %}
+    <div>This is color {{color}}</div>  {{caller()}}
+{% endmacro %}
+
+{% for color in colors: %}
+<br>
+    {% call render_color(color) %}  {# 调用 #}
+        render_color_demo<br>
+    {% endcall %}
+{% endfor %}
+</body>
+</html>
